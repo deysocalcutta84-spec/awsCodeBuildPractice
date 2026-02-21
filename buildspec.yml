@@ -7,8 +7,8 @@ phases:
 
   pre_build:
     commands:
-      - echo "$SSH_PRIVATE_KEY1" > sd12_key.pem
-      - chmod 400 sd12_key.pem
+      - echo "$SSH_PRIVATE_KEY-2" > sd23_key.pem
+      - chmod 400 sd23_key.pem
 
   build:
     commands:
@@ -17,5 +17,5 @@ phases:
   post_build:
     commands:
       - echo Deploying to EC2
-      - scp -i sd12_key.pem -o StrictHostKeyChecking=no index.html ec2-user@54.219.162.167:/home/ec2-user/
-      - ssh -i sd12_key.pem ec2-user@54.219.162.167 "sudo mv /home/ec2-user/index.html /usr/share/nginx/html/index.html"
+      - scp -i sd23_key.pem -o StrictHostKeyChecking=no index.html ec2-user@18.218.237.71:/home/ec2-user/
+      - ssh -i sd23_key.pem ec2-user@18.218.237.71 "sudo mv /home/ec2-user/index.html /usr/share/nginx/html/index.html"
